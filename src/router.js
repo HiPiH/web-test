@@ -7,8 +7,10 @@ import store from './store'
 
 
 import LoginPage  from './components/LoginPage'
-import Hello      from './components/HelloWorld'
+import Main      from './components/Main'
 
+import world1 from './components/reports/World1';
+import world2 from './components/reports/World2';
 
 
 Vue.use(Router);
@@ -18,10 +20,17 @@ let  router = new Router({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', name:'main', component: Hello,
-      meta: { 
-        requiresAuth: true
-      }
+    { path: '/', 
+      name:'main', 
+      component: Main,
+      meta: {requiresAuth: true}, 
+      children:[
+            {path :'world/map' , component: world1},
+            {path :'world/table' , component: world2},
+            {path :'russia' , component: world1},
+            {path :'russia/moscow/map' , component: world1},
+            {path :'russia/moscow/table' , component: world2},
+      ]
     },
     { path: '/login', name:'login', component: LoginPage }
   ]
