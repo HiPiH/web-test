@@ -52,8 +52,8 @@ export default {
     },
     methods: {
         auth () {
-            this.$store.dispatch('user/login', this.login)
-               .then(() => this.$router.push('/'))
+            this.$store.dispatch('user/login',  { login : this.login, password : this.password})
+               .then((l) => { console.log(l); this.$router.push('/')})
                 .catch(err => console.log(err));
         },
         logout () {
@@ -79,9 +79,9 @@ export default {
         left: 0; 
         min-width: 50%;
         min-height: 100%;
--webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+        -webkit-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+        box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
  
     }
     .auth-form {

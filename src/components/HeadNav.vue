@@ -7,8 +7,8 @@
                             <template v-slot:button-content>
                               <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon>&nbsp;Ivan
                             </template>
-                            <b-dropdown-item href="#">An item</b-dropdown-item>
-                            <b-dropdown-item href="#">Another item</b-dropdown-item>
+                            <b-dropdown-item href="#" disabled="" >Профиль</b-dropdown-item>
+                            <b-dropdown-item href="#"  disabled="" >Выход</b-dropdown-item>
                         </b-dropdown>
                 </div>
         </div>

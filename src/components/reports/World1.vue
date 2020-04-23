@@ -1,82 +1,109 @@
 <template>
  <div class="container-fluid ">
-  <div class="row  counterline">
-       <div class="col-sm-3"></div>
-      <div class="col-sm-3">
-        <div class="box counter ">
-          <h6 class="lh-1">Вернулось за вчера</h6>
-          <div class="value green"> + 555</div>
-            
-        </div>
-      </div>
-      <div class="col-sm-3">
-        <div class="box counter red">
-            <h6 class="lh-1"> Всего в мире </h6>
-            <div class="value red"> - 555</div>
-            
-        </div>
-      </div>
-     
-  </div>
-  
 
-  <div class="row box" style="">
-    <svg class="col-sm-12 map" ref="mapBox" ></svg>
+  <div class="row ">
+      <counter class="col-lg-3 offset-lg-3 col-xl-2 offset-xl-3" value="+ 555">Вернулось за вчера</counter>
+      <counter class="col-lg-3 col-xl-2 offset-xl-1" value="- 7984">Всего в мире</counter>
+  </div>
+     
+
+  <div class="row" style="">
+    <div class="charbox">
+      <div class="box">
+          <svg class="col-sm-12 map" ref="mapBox" ></svg>
+      </div>
+    </div>
   </div>  
 </div>
 </template>
 
 <script>
+import counter from "./charts/Counter"
+
 const d3 = require('d3');
 // const topojson = require('topojson')
 
 export default {
-    name:'world1'    ,
+  name:'world1',
+  components: {counter},
    created() {
        
    }, methods: {
 
     },
     mounted:  function () {
+    
 
-      function get_random_color2() 
-      {
-           if(Math.random()< 0.5) return "#e4ecef";
-          var r = function () { return 128+ Math.floor(Math.random()*128) };
-
-          return "rgb("+r()+",0,0,1)";
-      }
-
-      console.log(this.$el,this.$refs);
-        var  centerProjection = [20, 0];
+        var  centerProjection = [13, 0];
         var width = this.$refs.mapBox.clientWidth,
             height = this.$refs.mapBox.clientHeight;
 
-       var scaleProj = Math.min(width , height) / Math.PI;
+       var scaleProj = Math.min(width , height) / (Math.PI+0.2);
 
-        var projection = d3.geoEquirectangular().translate([width / 2, height / 2])
+
+        var projection = d3.geoEquirectangular().translate([width / 2, height / 1.8])
             .scale(scaleProj).rotate([-centerProjection[0], -centerProjection[1]]);
     
-        var path = d3
-                    .geoPath()
+        var path = d3.geoPath()
                     .projection(projection)
           
-        /* World Map */
-        d3.select(this.$el).select('svg')
-                          .append('svg:g')
-                          .attr('id', 'countries').selectAll('path')
-          .data(window.countries_data.features) // get the data here: https://gist.github.com/2969317
-          .enter()
-          .append('svg:path')
-          .attr('d', path)
-           .attr("class", "state")
-          .style("fill", function(d) {  return get_random_color2() /*"*/; })
-          .attr('stroke', '#fff')
-          .attr('fill-opacity', '1')
-          .attr('fill-rule',"evenodd")
-          .attr('stroke-width', 1);
 
+         var div = d3.select("body")
+                .append("div")   
+                .attr("class", "tooltip")               
+                .style("opacity", 0);
+
+          var svg = d3.select(this.$el).select('svg').
+                  call(d3.zoom()
+                          .scaleExtent([1,4])
+                          .translateExtent([[0,0],[width,height]]).on("zoom", function () {
+                      svg.attr("transform", d3.event.transform)
+                  }))
+                  .append('g');
+ 
+
+
+
+                   function get_random_color2() 
+                  {
+                      if(Math.random()< 0.5) return "#e4ecef";
+                      var r = function () { return 128+ Math.floor(Math.random()*128) };
+
+                      return "rgb("+r()+",0,0)";
+                  }
+                  svg
+                  .attr('id', 'countries')
+                  .selectAll('path')
+                  .data(window.countries_data.features) // get the data here: https://gist.github.com/2969317
+                  .enter()
+                  .append('svg:path')
+                  .attr('d', path)
+                  .attr("class", "state")
+                  .style("fill", function() {  return get_random_color2() ; })
+                  .attr('stroke', '#226688')
+                  .attr('fill-opacity', '1')
+                  .attr('fill-rule',"evenodd")
+                  .attr('stroke-width', 1) .on("mouseover", function(d) {
+        
+                          d3.select(this).transition().duration(300).style("opacity", 0.2);
+                          div.transition().duration(300)
+                          .style("opacity", 1)
+                          div.text(d.properties.name)
+                          .style("left", (d3.event.pageX) + "px")
+                          .style("top", (d3.event.pageY -30) + "px");
+                  })
+                  .on("mouseout", function() {
+                          d3.select(this)
+                          .transition().duration(300)
+                          .style("opacity", 0.8);
+                          div.transition().duration(300)
+                          .style("opacity", 0);
+                  })
     
+
+
+
+
   }
 }
 
@@ -95,39 +122,15 @@ export default {
   fill: #e4ecef;
 }
 
-.row{
-    margin-top:30px;}
-.box {
-  border:1px solid #EEE;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-}
+
+
 .map {
-    height:700px; 
-  background-color:#FFF
+     height:50vh ;
+  background-color:#FFF;
 }
-.counterline{
-    height: 100px;
-    margin-bottom: 20px;
-}
-.counter{
-    height: 100%;
+.tooltip{
     background-color: #FFF;
 }
-.counter h6{
-    font-size:12px;
-    padding: 5px 0 0 10px;
-    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
-    color: #72777a;
-}
-.counter .green {
-      color: #4caf50!important;
-}
 
-.counter .red {
-        color: #f44336!important;
-}
-.counter .value{
-    text-align: center;
-    font-size:40px;
-}
+
 </style>

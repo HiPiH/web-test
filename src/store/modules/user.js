@@ -16,8 +16,13 @@ const getters = {
 }
 
 const actions = {
-    login({ commit }, login ) {
-      commit('login', login);
+    login({ commit }, user) {
+console.log(user);
+     if(user.password == "123456")
+        {
+            commit('login', user.login);
+            return true;
+        } return false;
     },
     logout({ commit },  ) {
       commit('logout');
@@ -28,8 +33,10 @@ const actions = {
 const mutations = {
 
     login (state, login) {
-        localStorage.setItem('userName',login);
-        state.userName = login;
+      
+          localStorage.setItem('userName',login);
+          state.userName = login;
+        
     },
 
     logout (state) {
