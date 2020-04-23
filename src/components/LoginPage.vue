@@ -1,5 +1,6 @@
 <template>  
-  <div class="container-fluid ">
+
+  <div class="container-fluid">
         <div class="row h-100 ">
             <div class="col-sm-7 "><div class="left_panel">1</div></div>
             <div class="col-sm-4 ">

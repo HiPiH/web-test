@@ -20,10 +20,7 @@ let  router = new Router({
   mode: 'history',
   base: __dirname,
   routes: [
-    { path: '/', 
-      name:'main', 
-      component: Main,
-      meta: {requiresAuth: true}, 
+    { path: '/', name:'main', component: Main,meta: {requiresAuth: true}, 
       children:[
             {path :'world/map' , component: world1},
             {path :'world/table' , component: world2},
