@@ -2,14 +2,14 @@
  <div class="container-fluid ">
   <div class="row">
                             <div class="col-12">
-                              <div class="charbox">
-                                  <div class="box">
-                                       <multiselect v-model="value" :options="searchOption"  placeholder="Выбрать страны"  
-                              @search-change="searchCal"
-                                :multiple="true"
-                                ></multiselect>
-                                  </div>
-                              </div>
+                               <div class="containermap">  
+                                      <div class="box">
+                                          <multiselect v-model="value" :options="searchOption"  placeholder="Выбрать страны"  
+                                  @search-change="searchCal"
+                                    :multiple="true"
+                                    ></multiselect>
+                                      </div>
+                                </div>
                             </div>
                       </div>
       <div class="row">
@@ -23,11 +23,16 @@
                       <div class="row">
                         <counter class="col-12" value="- 7984">Всего в мире</counter>
                       </div>
+                    <div class="row">
+                        <CounterList class="col-12" :value="ListCountry" >ТОП 5 стран с нашими абонентами</CounterList>
+                      </div>
                   </div>
                   <div class="col-9">
-                    <div class="charbox">
-                      <div class="box">
-                          <svg class="col-sm-12 map" ref="mapBox" ></svg>
+                    <div class="containermap">  
+                      <div class="charbox" >
+                          <div class="box" >
+                              <svg class="col-sm-12 map" ref="mapBox" ></svg>
+                          </div>
                       </div>
                     </div>
                   </div>
@@ -60,19 +65,7 @@
         </div>
       </div>
 
-      <!-- <div class="row ">
-          <counter class="col-lg-3 offset-lg-3 col-xl-2 offset-xl-3" value="+ 555">Вернулось за вчера</counter>
-          <counter class="col-lg-3 col-xl-2 offset-xl-1" value="- 7984">Всего в мире</counter>
-      </div>
-     
-
-      <div class="row" style="">
-        <div class="charbox">
-          <div class="box">
-              <svg class="col-sm-12 map" ref="mapBox" ></svg>
-          </div>
-        </div>
-      </div>   -->
+   
 </div>
 </template>
 
@@ -83,7 +76,7 @@ import TourinstPerCountry from './charts/Worlds/TourinstPerCountry'
 
 import TourinstChnaged from './charts/Worlds/TourinstChnaged'
 
-
+import CounterList from "./charts/template/CounterList"
 
 const d3 = require('d3');
 // const topojson = require('topojson')
@@ -93,7 +86,8 @@ export default {
     components: {
           counter,
           TourinstPerCountry,
-          TourinstChnaged
+          TourinstChnaged,
+        CounterList
     },
    data() {
       return {
@@ -109,6 +103,11 @@ export default {
       }
     },
     methods: {
+        ListCountry: function(){
+            return  window.countries_data.features.map(function(el){ 
+                  return el.properties.name 
+            }).slice(0,5);
+        }, 
         tableCal(){
            
             return  window.countries_data.features.map(function(el){ 
@@ -220,14 +219,36 @@ export default {
 }
 
 
-
+.box{
+  height: 100%;
+}
 .map {
-     height:50vh ;
-  background-color:#FFF;
+     /* height:50vh ; */
+     height: 100%; 
+    background-color:#FFF;
 }
 .tooltip{
     background-color: #FFF;
 }
 
+
+
+.containermap{
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+
+.charbox{
+ display: block;
+  /* margin:0 0 0 0 ;
+  padding:5px 5px 0 5px ; */
+  border:1px solid #EEE;
+  /* background-color: #FFF; */
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    width: 100%;
+  height:100%;
+  
+}
 
 </style>

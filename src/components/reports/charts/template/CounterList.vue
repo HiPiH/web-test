@@ -3,7 +3,14 @@
         <div class="counter">
             <div class="box">
                 <h6 class="lh-1"><slot></slot></h6>
-                <div class="value "  v-bind:class="getTypeCounter" > {{value}}</div>
+                <div class="value ">
+                  <div class="list">
+                    <div v-for="(item,index) in getValues" :key="index" class="listitem">
+                         {{item}}
+                    </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>
@@ -12,17 +19,14 @@
 <script>
 
 export default {
-    name:'counter',
+    name:'CounterList',
     props: ['value'],
     computed: {
-        getTypeCounter () {
-            
-
-            if(this.value.trim()[0] == '+')
-                return "green";
-            if(this.value.trim()[0] == '-')
-                return "red";
-            return "";
+       getValues: function(){
+            var val = this.value;
+            if(this.value instanceof Function)
+                val =  this.value();
+            return val;
         }
     }
 }
@@ -33,6 +37,10 @@ export default {
 
 .counter{
     padding-bottom:20px;
+}
+
+.counter .list .listitem{
+    line-height: 35px;
 }
 .counter h6{
     font-size:0.7vw;
@@ -53,7 +61,7 @@ export default {
 
 .counter .value{
     text-align: center;
-    font-size:2vw;
+    font-size:1vw;
 }
 
 
@@ -61,8 +69,8 @@ export default {
   border:1px solid #EEE;
   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
   width: 100%;
-    height: 100%;
-    background-color: #FFF;
+  height: 100%;
+  background-color: #FFF;
 }
 
 

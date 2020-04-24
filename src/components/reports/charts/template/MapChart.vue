@@ -69,7 +69,7 @@ export default {
                     .attr('d', path)
                     .attr("class", "state")
                     .style("fill",this.coloredField)
-                    // .attr('stroke', '#000')
+                  .attr('stroke', '#226688')
                     .attr('fill-opacity', '1')
                    // .attr('fill-rule',"evenodd")
                    // .attr('stroke-width', 1) 
@@ -131,7 +131,7 @@ export default {
 <style >
 
 
-.state {
+/* .state {
   fill: #ccc;
 
 }
@@ -149,5 +149,16 @@ export default {
     background-color: #FFF;
 }
 
+
+.charbox{
+display: block;
+  margin-top:20px;
+  padding:5px;
+  border:1px solid #EEE;
+  background-color: #FFF;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    width: 100%;
+
+} */
 
 </style>
