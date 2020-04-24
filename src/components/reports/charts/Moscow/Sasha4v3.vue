@@ -114,7 +114,7 @@ export default {
           datasets: [
             
        {
-              label: '% жителей, соблюдающих режим самоизоляции',
+              label: '% жителей, выходящих на допустимое расстояние',
                backgroundColor: this.gradient ,
                data: data.map(function(k, i ){
                    //console.log(data[i])  

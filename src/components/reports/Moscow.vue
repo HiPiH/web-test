@@ -16,25 +16,25 @@
     <div class="row">
             <div class="col-6">
                 <div class="box">
-                    <MglMap :accessToken="accessToken" 
-                         mapStyle="mapbox://styles/mapbox/dark-v10"
-                        :center="[37.611049, 55.773612]"
-                        :zoom=8 >
-                        <MglGeojsonLayer
-                            :sourceId="geoJsonSource.source.id"
-                            :source="geoJsonSource.source"
+
+                      <MglMap 
+                            container="map-test"
+                            
+                            :accessToken="accessToken" 
+                            :mapStyle.sync="mapStyle"
+                            :zoom="zoom"
+                            :center.sync="center"
+                            >
+                            <MglGeojsonLayer
+                            :sourceId="geoJsonSource.id"
+                            :source="geoJsonSource"
                             layerId="moscow"
-                            :layer="geoJsonSource.layer"
+                            :layer="geoJsonlayer"
                             />
-                    </MglMap>
+                        </MglMap>
                    
                 </div>
             </div>
-        <!-- <mapChart class="col-6"
-            :coloredField=getColorForMap
-            :centerProjection=[0,0] 
-            urlData="/ao.geojson"
-                :getData=getDataForMap ></mapChart> -->
     
         <div class="col-6">
             <div class="row">
@@ -89,7 +89,6 @@ import TablePSimple from './charts/template/Table'
 
 
 import Mapbox from "mapbox-gl";
-
 import { MglMap, MglGeojsonLayer } from "vue-mapbox";
 
 
@@ -108,36 +107,37 @@ export default {
     },
    data() {
       return {
-            accessToken: 'pk.eyJ1IjoiYmVlbGluZTIwMjAiLCJhIjoiY2s5ZWJ3c3pwMDBrazNzcGMwbDZzNzRvMyJ9.jDC5h8DOtNpMKESdXBnekQ',
-            geoJsonSource: {
-                source:{
-                      id: 'moscow',
-                      type: 'vector',
-                      url: 'mapbox://beeline2020.5x2bac7r'
-                },
-                layer:{
-                    'id': 'moscow',
-                    'type': 'fill',
-                    'source': 'moscow',
-                    'source-layer': 'moscow-2d5ovk',
-                    'layout': {},
-                    'paint': {
-                        'fill-opacity': 0.8,
-                        'fill-color': [
-                            'step',
-                            ['get', 'covid'],
-                            '#000000',
-                            100, '#FFFFB2',
-                            300, '#FECC5C',
-                            500, '#FD8D3C',
-                            700, '#F03B20',
-                            900, '#BD0026',
-                        ],
-                        'fill-outline-color': '#ffffff'
-                    }
-                }
+              accessToken: "pk.eyJ1IjoiYmVlbGluZTIwMjAiLCJhIjoiY2s5ZWJ3c3pwMDBrazNzcGMwbDZzNzRvMyJ9.jDC5h8DOtNpMKESdXBnekQ",
+      mapStyle: "mapbox://styles/mapbox/dark-v10",
+      center: [37.611049, 55.773612],
+      zoom: 8,
+      geoJsonSource: {
+        id: 'moscow',
+        type: 'vector',
+        url: 'mapbox://beeline2020.5x2bac7r'
+      },
+      geoJsonlayer: {
+        'id': 'moscow',
+        'type': 'fill',
+        'source': 'moscow',
+        'source-layer': 'moscow-2d5ovk',
+        'layout': {},
 
-            },
+        'paint': {
+          'fill-opacity': 0.8,
+          'fill-color': [
+            'step',
+            ['get', 'covid'],
+            '#000000',
+            100, '#FFFFB2',
+            300, '#FECC5C',
+            500, '#FD8D3C',
+            700, '#F03B20',
+            900, '#BD0026',
+          ],
+          'fill-outline-color': '#ffffff'
+        }
+      },
             lableAO: ["ЦАО","ЮВАО","ЮЗАО","САО"],
             searchAOValue:null,
             selectedDate:null,
