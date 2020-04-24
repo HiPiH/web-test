@@ -1,9 +1,7 @@
 <template>
-    <div class="container-fluid ">
-        <div class="charbox">
-            <div class="box">
-                <svg class="col-sm-12 map" ref="mapBox" ></svg>
-            </div>
+    <div>
+        <div class="box">
+            <svg class="col-sm-12 map" ref="mapBox" ></svg>
         </div>
     </div>
 </template>
@@ -15,7 +13,6 @@
 
 
 const d3 = require('d3');
-// const topojson = require('topojson')
 
 export default {
     name:'mapChart',
@@ -45,7 +42,7 @@ export default {
 
            
             console.log(width,height);
-            var projection = d3.geoEquirectangular()
+            var projection = d3.geoMercator() 
                         .fitSize([width, height], this.data);
             var path = d3.geoPath()
                                 .projection(projection);
@@ -69,7 +66,7 @@ export default {
                     .attr('d', path)
                     .attr("class", "state")
                     .style("fill",this.coloredField)
-                  .attr('stroke', '#226688')
+                    .attr('stroke', '#226688')
                     .attr('fill-opacity', '1')
                    // .attr('fill-rule',"evenodd")
                    // .attr('stroke-width', 1) 
@@ -78,7 +75,7 @@ export default {
                             d3.select(this).transition().duration(300).style("opacity", 0.2);
                             div.transition().duration(300)
                             .style("opacity", 1)
-                            div.text(d.properties.name)
+                            div.text(d.properties.name || d.properties.NAME)
                             .style("left", (d3.event.pageX) + "px")
                             .style("top", (d3.event.pageY -30) + "px");
                     })
@@ -130,13 +127,13 @@ export default {
 
 <style  scoped>
 
-
-
-
 .state {
   fill: #ccc;
 
 }
+/* 
+
+
 .state:hover {
   fill: #e4ecef;
 }
@@ -151,10 +148,7 @@ export default {
 
 .charbox{
  display: block;
-  /* margin:0 0 0 0 ;
-  padding:5px 5px 0 5px ; */
   border:1px solid #EEE;
-  /* background-color: #FFF; */
   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
     width: 100%;
   height:100%;
@@ -164,13 +158,12 @@ export default {
   height: 100%;
 }
 .map {
-     /* height:50vh ; */
      height: 100%; 
     background-color:#FFF;
 }
 .tooltip{
     background-color: #FFF;
-}
+} */
 
 
 </style>

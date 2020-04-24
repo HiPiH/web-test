@@ -1,7 +1,7 @@
 <template>
     <b-navbar  type="light" variant="light">
      <b-nav-form>
-            <b-input-group class="mr-sm-2" prepend="Update every">
+            <b-input-group class="mr-sm-2" prepend="Автообновление">
                 <b-form-select v-model="selected" :options="options"></b-form-select>
             </b-input-group>
             <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">
@@ -19,7 +19,7 @@
 
         <b-nav-item-dropdown right>
           <template v-slot:button-content>
-           <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon>&nbsp;Ivan
+           <b-icon icon="person-bounding-box" aria-hidden="true"></b-icon>&nbsp;Иван
           </template>
                 <b-dropdown-item href="#" disabled="" >Профиль</b-dropdown-item>
                 <b-dropdown-item href="#"  disabled="" >Выход</b-dropdown-item>
@@ -36,10 +36,10 @@ export default {
       return {
          selected: 5,
         options: [
-            { value: 5, text: '5 seconds' },
-            { value: 30, text: '30 seconds' },
-            { value: 60, text: '1 minute' },
-            { value: 0, text: 'Never' }
+            { value: 5, text: '5 секунд' },
+            { value: 30, text: '30 секунд' },
+            { value: 60, text: '1 минуту' },
+            { value: 0, text: 'Никогда' }
         ],
       } 
     }
@@ -47,7 +47,3 @@ export default {
 </script>
 
 
-<style>
-
-
-</style>

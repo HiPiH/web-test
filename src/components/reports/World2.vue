@@ -22,7 +22,7 @@
 
 
 
-import counter from "./charts/Counter"
+import counter from "./charts/template/Counter"
 
 
 import TourinstPerCountry from './charts/Worlds/TourinstPerCountry'
@@ -43,13 +43,3 @@ export default {
 
 
 
-
-
-
-
-
-<style>
-
-
-
-</style>

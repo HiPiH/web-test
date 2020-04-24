@@ -13,6 +13,7 @@ import world1 from './components/reports/World1';
 import world2 from './components/reports/World2';
 
 import moscow1 from './components/reports/Moscow';
+import moscow2 from './components/reports/Moscow2';
 
 Vue.use(Router);
 
@@ -27,7 +28,7 @@ let  router = new Router({
             {path :'world/table' , component: world2},
             {path :'russia' , component: world1},
             {path :'russia/moscow/map' , component: moscow1},
-            {path :'russia/moscow/table' , component: world2},
+            {path :'russia/moscow/table' , component: moscow2},
       ]
     },
     { path: '/login', name:'login', component: LoginPage }

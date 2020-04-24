@@ -34,46 +34,57 @@
                   menu: [
                       {
                           header: true,
-                          title: 'Beeline vs COVID-19',
+                          title: "",// 'Beeline vs COVID-19',
                           hiddenOnCollapse: true
                       },
                       {
-                   
-                          title: 'Весь мир',
-                          child: [
-                              {
-                                  href: '/world/map',
-                                  title: 'Карта'
-
-                              },
-                              {
-                                  href: '/world/table',
-                                  title: 'Сводная информация'
-                              }
-                          ],
-                          icon: 'fa fa-globe'
+                          title: 'Москва',
+                          icon: 'fas fa-ruble-sign',
+                          href: '/russia/moscow/map'
                       },
                       {
-             
-                          title: 'Россия',
-                          icon: 'fas fa-ruble-sign',
-                          child: [
-                              {
-                                  title: 'Москва',
-                                    child: [
-                                    {
-                                        href: '/russia/moscow/map',
-                                        title: 'Карта'
-
-                                    },
-                                    {
-                                        href: '/world/table',
-                                        title: 'Сводная'
-                                    }
-                                ],
-                              }
-                          ],
+                          title: 'Зарубежом',
+                           icon: 'fa fa-globe',
+                          href: '/world/map'
                       }
+                      //   ,
+                      // {
+                   
+                      //     title: 'Весь мир',
+                      //     child: [
+                      //         {
+                      //             href: '/world/map',
+                      //             title: 'Карта'
+
+                      //         },
+                      //         {
+                      //             href: '/world/table',
+                      //             title: 'Сводная информация'
+                      //         }
+                      //     ],
+                      //     icon: 'fa fa-globe'
+                      // },
+                      // {
+             
+                      //     title: 'Россия',
+                      //     icon: 'fas fa-ruble-sign',
+                      //     child: [
+                      //         {
+                      //             title: 'Москва',
+                      //               child: [
+                      //               {
+                      //                   href: '/russia/moscow/map',
+                      //                   title: 'Карта'
+
+                      //               },
+                      //               {
+                      //                   href: '/russia/moscow/table',
+                      //                   title: 'Сводная'
+                      //               }
+                      //           ],
+                      //         }
+                      //     ],
+                      // }
                   ],
                   collapsed: false,
 
@@ -101,7 +112,9 @@ body,
 html {
   margin: 0;
   padding: 0;
+  height:100%;
 }
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
   font-size: 18px;
@@ -123,9 +136,9 @@ font-family: FontAwesome;
 
 .header-panel{
   margin-bottom:20px;
-  -webkit-box-shadow: 0 0 11px 0px rgba(0,0,0,0.50);
+  /* -webkit-box-shadow: 0 0 11px 0px rgba(0,0,0,0.50);
   -moz-box-shadow: 0 0 11px 0px rgba(0,0,0,0.50);
-  box-shadow: 0 0 11px 0px rgba(0,0,0,0.50);
+  box-shadow: 0 0 11px 0px rgba(0,0,0,0.50); */
   
 }
 .main-view-report{ 
@@ -133,16 +146,73 @@ font-family: FontAwesome;
 
 }
 .main-view-report .row{
-padding-bottom: 20px;
-
+  margin-bottom: 20px;
 }
+.main-view-report .row:last-child, .row:only-child {
+  margin-bottom: 0px;
+}
+
 .main-view-report .container-fluid {
-height: 100%;
+  height: 100%;
+}
 
+.main-view-report .b-table {
+  font-size: 0.7rem;
+}
+
+.b-table-sticky-header, .table-responsive, [class*="table-responsive-"] {
+  margin-bottom: 0px;
 }
 
 
 
+.main-view-report .box {
+  border:1px solid #EEE;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+  width: 100%;
+  height: 100%;
+  background-color: #FFF;
+} 
+
+
+.main-view-report .box svg {
+  height: 100%;
+}
+
+.form-controll{
+
+font-size: 0.7rem
+
+}
+
+/*counters*/
+
+.counter{
+    padding-bottom:20px;
+}
+.counter h6{
+    font-size:0.7rem;
+    padding: 5px 0 10px 0px;
+    font-family: Roboto,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Arial,sans-serif;
+    color: #72777a;
+    text-align: center;
+    height: 30px;
+    
+}
+.counter .green {
+    color: #4caf50!important;
+}
+
+.counter .red {
+    color: #f44336!important;
+}
+
+.counter .value{
+    text-align: center;
+    font-size:2vw;
+}
+
+/************************* */
 
 
 </style>

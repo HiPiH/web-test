@@ -5,21 +5,21 @@
             <div class="col-sm-7 "><div class="left_panel">1</div></div>
             <div class="col-sm-4 ">
                 <div v-if="isAuth">
-                    Login sss {{userName}}
-                    <button v-on:click="logout">Logout</button>
+                    Сессия для {{userName}}
+                    <button v-on:click="logout">Выход</button>
                 </div>
                 <div v-if="!isAuth" >
                     <div class="auth-form">
                         <form class="login" @submit.prevent="auth">
                             <div class="form-group">
-                                <label for="login">Email</label>
+                                <label for="login">Имя пользователя</label>
                                 <input required v-model="login" type="email" id="login" class="form-control" placeholder="Name"/>
                             </div>
                             <div class="form-group">
-                                <label for="password">Password</label>
+                                <label for="password">Пароль</label>
                                 <input required v-model="password" type="password" id="password"  class="form-control" placeholder="Password"/>
                             </div>
-                            <button type="submit"  class="btn btn-primary">Login</button>
+                            <button type="submit"  class="btn btn-primary">Вход</button>
                         </form>
                     </div>
                 </div>
@@ -53,7 +53,7 @@ export default {
     methods: {
         auth () {
             this.$store.dispatch('user/login',  { login : this.login, password : this.password})
-               .then((l) => { console.log(l); this.$router.push('/')})
+               .then((l) => { console.log(l); this.$router.push('/russia/moscow/map')})
                 .catch(err => console.log(err));
         },
         logout () {
@@ -70,7 +70,7 @@ export default {
 <style scoped>
 
    .left_panel {
-        background-image: url(/covid.jpeg);
+        background-image: url(/man.jpeg);
         background-position: center center; /* Положение фона */
         background-repeat: no-repeat; /* Отменяем повторение фона */
         background-size: 120% 120%;

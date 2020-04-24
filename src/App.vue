@@ -19,8 +19,3 @@ export default {
 
 
 
-<style>
-html,body,.container {
-    height:100%;
-}
-</style>

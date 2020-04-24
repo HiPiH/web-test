@@ -1,14 +1,23 @@
 <template>
-    <div  > 
-           <div class="charbox">
-              <BarChart class="box" :chart-data="datacollection" :height="200" :styles="myStyles" :options="options"></BarChart>
-          </div>
-      </div>
+  <div> 
+    <div class="box">
+      <BarChart :chart-data="datacollection" :height="200" :styles="myStyles" :options="options"></BarChart>
+    </div>
+  </div>
 </template>
 
 <script>
 import BarChart from '../template/BarChart'
-
+ var colors = ["#67001F",
+                      "#B2182B",
+                      "#D6604D",
+                      "#F4A582",
+                      "#FDDBC7",
+                      "#E0E0E0",
+                      "#BABABA",
+                      "#878787",
+                      "#4D4D4D",
+                      "#1A1A1A"];
 export default { 
   components: {
       BarChart
@@ -19,16 +28,18 @@ export default {
         options : {
           scales: {
             xAxes: [{
-              
-                 barThickness : 30      /*       categoryPercentage: 1.0,
+                gridLines: { display:false},
+                // barThickness : 30     
+         /*       categoryPercentage: 1.0,
             barPercentage: 1.0*/
             }],
               yAxes: [{
-                  ticks: {
-                      // max: 5,
-                       min: 0,
-                      stepSize: 1
-                  }
+                  
+                  // ticks: {
+                  //     // max: 5,
+                  //      min: 0,
+                  //     stepSize: 10
+                  // }
               }]
           },
 
@@ -56,13 +67,18 @@ export default {
   },
     methods: {
      fillData () {
+         var data = Array.apply(null, Array(30)).map(function (_, i) {
+                  var d =  new Date( Date.now()- i * 24*60*60*1000);
+                  return  d.getDate()+"."+(d.getMonth()+1)//+"."+d.getFullYear()
+          })
+        //data.reverce();
         this.datacollection = {
-          labels: [ "19.04.2020",  "20.04.2020",  "21.04.2020", "22.04.2020"],
+          labels: data.reverse(),
           datasets: [
             {
               label: 'Абоненты',
-              backgroundColor: 'rgb(0,0,200,0.5)',
-              data: [10, 8, 6 ,4 ],
+              backgroundColor: colors[0],
+              data: data.map(function(k){   return {x:k,y: Math.floor(Math.random()*500)}     }),
               trendlineLinear: {
                               style: "black",
                               lineStyle: "dotted",
