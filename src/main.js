@@ -18,7 +18,6 @@ import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 import 'vue-awesome/icons'
 
-// import 'https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css'
 
 import chartjs from "vue-chartjs"
 import chartjsPluginTreadline from "chartjs-plugin-trendline"

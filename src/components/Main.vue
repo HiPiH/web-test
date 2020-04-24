@@ -43,7 +43,7 @@
                           href: '/russia/moscow/map'
                       },
                       {
-                          title: 'Зарубежом',
+                          title: 'За рубежом',
                            icon: 'fa fa-globe',
                           href: '/world/map'
                       }
