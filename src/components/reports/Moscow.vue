@@ -64,7 +64,7 @@
              <KarantinData2 class="col-6"></KarantinData2>
  </div>
 <div class="row">
-                <KarantinData class="col-6"></KarantinData>
+                <KarantinData4 class="col-6"></KarantinData4>
              <KarantinData class="col-6"></KarantinData>
  </div>
 </div>
@@ -81,6 +81,8 @@ import counter from "./charts/template/Counter"
 import KarantinData from './charts/Moscow/Sasha2v3.vue'
 
 import KarantinData2 from './charts/Moscow/Sasha3v3.vue'
+import KarantinData4 from './charts/Moscow/Sasha4v3.vue'
+
 
 import TablePSimple from './charts/template/Table'
 
@@ -97,6 +99,7 @@ export default {
         counter,
    MglMap,
         MglGeojsonLayer  ,   
+KarantinData4,
      KarantinData2,
         KarantinData,
         TablePSimple

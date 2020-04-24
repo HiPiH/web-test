@@ -70,7 +70,7 @@ export default {
 
           title: {
               display: true,
-              text: 'Соблюдение карантина вернувшимися из зарубежных стран',
+              text: 'Соблюдение режима самоизоляции (% жителей, выходящих на допустимое расстояние)',
              titleAlign:'left'
           },
           legend: {
@@ -104,9 +104,9 @@ export default {
           }).reverse();
 
         this.gradient = this.$refs.canvas.$refs.canvas.getContext("2d").createLinearGradient(0, 0, 0, 450);
-        this.gradient.addColorStop(0, colors[0]);
-        this.gradient.addColorStop(0.5, "rgba(255, 0, 0, 0.75)");
-        this.gradient.addColorStop(1, "rgba(255, 0, 0, 0.50)");
+        this.gradient.addColorStop(0, "rgba(255, 160, 64,100)");
+        this.gradient.addColorStop(0.5, "rgba(255, 160, 64, 0.75)");
+        this.gradient.addColorStop(1, "rgba(255, 160, 64, 0.50)");
         var count = 45000;
         var count2 = 45000;
         this.datacollection = {
@@ -114,7 +114,7 @@ export default {
           datasets: [
             
        {
-              label: '% жителей, не соблюдающих карантин',
+              label: '% жителей, соблюдающих режим самоизоляции',
                backgroundColor: this.gradient ,
                data: data.map(function(k, i ){
                    //console.log(data[i])  
@@ -127,14 +127,14 @@ export default {
                     }
                    return {
                         x:k, 
-                        y:  Math.floor(count2*Math.random()*0.2)
+                        y:  Math.floor(count2*Math.random()*0.3)
                    } // Math.floor(Math.random()*500)}    
               },
             
               )
          
             },{
-              label: 'Количество жителей Москвы на карантине',
+              label: 'Количество жителей района',
                backgroundColor:colors[6],
                data: data.map(function(k, i ){
                    //console.log(data[i])  

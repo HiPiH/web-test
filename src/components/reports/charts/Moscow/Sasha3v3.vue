@@ -70,7 +70,7 @@ export default {
 
           title: {
               display: true,
-              text: 'Соблюдение режима самоизоляции',
+              text: 'Соблюдение режима самоизоляции (% жителей, не выходящих из дома)',
              titleAlign:'left'
           },
           legend: {
@@ -127,7 +127,7 @@ export default {
                     }
                    return {
                         x:k, 
-                        y:  Math.floor(count2*0.3)
+                        y:  Math.floor(count2*Math.random()*0.3)
                    } // Math.floor(Math.random()*500)}    
               },
             
