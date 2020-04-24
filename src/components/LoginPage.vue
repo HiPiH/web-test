@@ -2,7 +2,7 @@
 
   <div class="container-fluid">
         <div class="row h-100 ">
-            <div class="col-sm-7 "><div class="left_panel">1</div></div>
+            <div class="col-sm-7 "><div class="left_panel">&nbsp;</div></div>
             <div class="col-sm-4 ">
                 <div v-if="isAuth">
                     Сессия для {{userName}}
@@ -70,7 +70,7 @@ export default {
 <style scoped>
 
    .left_panel {
-        background-image: url(/man.jpeg);
+        background-image: url(/moscow.jpeg);
         background-position: center center; /* Положение фона */
         background-repeat: no-repeat; /* Отменяем повторение фона */
         background-size: 120% 120%;

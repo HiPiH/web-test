@@ -200,11 +200,11 @@ font-size: 0.7rem
     
 }
 .counter .green {
-    color: #4caf50!important;
+    color: #319C15!important;
 }
 
 .counter .red {
-    color: #f44336!important;
+    color: #B2182B!important;
 }
 
 .counter .value{
