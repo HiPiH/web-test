@@ -66,7 +66,7 @@ export default {
                 },
           title: {
               display: true,
-              text: 'Количество абонентов заграницей'
+              text: 'Количество вернувшихся на карантине'
           },
           legend: {
             display: true,

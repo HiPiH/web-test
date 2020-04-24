@@ -128,10 +128,12 @@ export default {
 </script>
 
 
-<style >
+<style  scoped>
 
 
-/* .state {
+
+
+.state {
   fill: #ccc;
 
 }
@@ -141,24 +143,34 @@ export default {
 
 
 
+.containermap{
+  height: 100%;
+  padding-bottom: 20px;
+}
+
+
+.charbox{
+ display: block;
+  /* margin:0 0 0 0 ;
+  padding:5px 5px 0 5px ; */
+  border:1px solid #EEE;
+  /* background-color: #FFF; */
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+    width: 100%;
+  height:100%;
+  
+}
+.box{
+  height: 100%;
+}
 .map {
-     height:50vh ;
-  background-color:#FFF;
+     /* height:50vh ; */
+     height: 100%; 
+    background-color:#FFF;
 }
 .tooltip{
     background-color: #FFF;
 }
 
-
-.charbox{
-display: block;
-  margin-top:20px;
-  padding:5px;
-  border:1px solid #EEE;
-  background-color: #FFF;
-  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-    width: 100%;
-
-} */
 
 </style>

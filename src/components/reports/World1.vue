@@ -48,7 +48,7 @@
         </div>
         <div class="col-3">
 
-                  <div class="charbox">
+                <div class="charbox">
                             <b-table 
                             :small=true
                             :items="tableCal"
@@ -64,7 +64,8 @@
               </div>
         </div>
       </div>
-
+<div class="row">
+</div>
    
 </div>
 </template>

@@ -120,6 +120,7 @@ content: "\f07e";
 font-family: FontAwesome;
 }
 
+
 .header-panel{
   margin-bottom:20px;
   -webkit-box-shadow: 0 0 11px 0px rgba(0,0,0,0.50);
@@ -131,8 +132,14 @@ font-family: FontAwesome;
   /* margin:20px; */
 
 }
+.main-view-report .row{
+padding-bottom: 20px;
 
+}
+.main-view-report .container-fluid {
+height: 100%;
 
+}
 
 
 

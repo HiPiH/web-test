@@ -17,6 +17,7 @@ export default {
 </script>
 
 <style scoped>
+
 .charbox{
  display: block;
   /* margin:0 0 0 0 ;
