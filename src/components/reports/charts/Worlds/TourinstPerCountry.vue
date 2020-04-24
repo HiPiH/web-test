@@ -56,6 +56,7 @@ export default {
               //         stepSize: 1
               //     }
               // }]
+
           },
           elements: {
                   rectangle: {

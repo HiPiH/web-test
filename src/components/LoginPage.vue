@@ -70,7 +70,7 @@ export default {
 <style scoped>
 
    .left_panel {
-        background-image: url(/Bilai-n-halyava-52.jpg);
+        background-image: url(/covid.jpeg);
         background-position: center center; /* Положение фона */
         background-repeat: no-repeat; /* Отменяем повторение фона */
         background-size: 120% 120%;
