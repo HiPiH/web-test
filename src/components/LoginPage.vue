@@ -70,6 +70,7 @@ export default {
 <style scoped>
 
    .left_panel {
+        opacity: 0.8;
         background-image: url(/moscow.jpeg);
         background-position: center center; /* Положение фона */
         background-repeat: no-repeat; /* Отменяем повторение фона */
