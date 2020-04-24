@@ -8,13 +8,12 @@
       <counter class="col-lg-3 offset-lg-1 c col-xl-2 offset-xl-1 " value="-20%">Из них соблюдают карантин  </counter>
   </div>
 
-  <div class="row  line">
-     <TourinstPerCountry class="col-xl-12  col-lg-12"></TourinstPerCountry>
+    <div class="row  line">
+      <TourinstPerCountry class="col-xl-6  col-lg-6"></TourinstPerCountry>
+    <TourinstChnaged class="col-xl-6 col-lg-6" > </TourinstChnaged>
+    </div>  
   </div>  
-   <div class="row  line" >
-        <TourinstChnaged class="col-xl-12 col-lg-12" > </TourinstChnaged>
-  </div>  
-</div>
+
 </template>
 
 

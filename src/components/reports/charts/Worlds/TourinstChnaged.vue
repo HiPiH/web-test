@@ -1,7 +1,7 @@
 <template>
     <div  > 
            <div class="charbox">
-              <BarChart class="box" :chart-data="datacollection" height="100" :styles="myStyles" :options="options"></BarChart>
+              <BarChart class="box" :chart-data="datacollection" :height="200" :styles="myStyles" :options="options"></BarChart>
           </div>
       </div>
 </template>
@@ -9,17 +9,20 @@
 <script>
 import BarChart from '../template/BarChart'
 
-
 export default { 
   components: {
       BarChart
     },
-   props: ['height'],
   data () {
       return {
-        datacollection: [null],
+        datacollection: {},
         options : {
           scales: {
+            xAxes: [{
+              
+                 barThickness : 30      /*       categoryPercentage: 1.0,
+            barPercentage: 1.0*/
+            }],
               yAxes: [{
                   ticks: {
                       // max: 5,
@@ -27,6 +30,15 @@ export default {
                       stepSize: 1
                   }
               }]
+          },
+
+          title: {
+              display: true,
+              text: 'Количество вернувшихся абонентов'
+          },
+          legend: {
+            display: true,
+            position:"bottom"
           }
         }
       }
@@ -49,17 +61,14 @@ export default {
           datasets: [
             {
               label: 'Абоненты',
-              backgroundColor: 'blue',
+              backgroundColor: 'rgb(0,0,200,0.5)',
               data: [10, 8, 6 ,4 ],
+              trendlineLinear: {
+                              style: "black",
+                              lineStyle: "dotted",
+                              width: 1,
 
-            },
-          {
-              label: 'Linear (Абоненты)',
-              backgroundColor: 'green',
-              data: [10, 8, 6 ,4 ],
-              type: 'line',
-              fill: false,
-              
+                          }
             }
           ]
         }

@@ -19,6 +19,17 @@ import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
 import 'vue-awesome/icons'
 
 
+import chartjs from "vue-chartjs"
+
+
+
+import chartjsPluginTreadline from "chartjs-plugin-trendline"
+
+
+
+
+
+
 Vue.config.productionTip = false
 
 Vue.use(Vuex);
@@ -26,6 +37,11 @@ Vue.use(PortalVue)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueSidebarMenu)
+
+Vue.use(chartjs)
+Vue.use(chartjsPluginTreadline)
+
+
 
 
 import App from './App.vue'
