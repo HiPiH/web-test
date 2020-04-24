@@ -47,9 +47,7 @@
                                     close-button></b-form-datepicker>
                 </div>
             </div>
-            <div class="row">
-                <KarantinData class="col-12"></KarantinData>
-            </div>
+            
             <div class="row">
                 <TablePSimple class="col-12" :data="getDataTable" height="750px">
                 </TablePSimple>
@@ -61,7 +59,14 @@
             </div>
         </div>
     </div>
-
+<div class="row">
+                <KarantinData class="col-6"></KarantinData>
+             <KarantinData2 class="col-6"></KarantinData2>
+ </div>
+<div class="row">
+                <KarantinData class="col-6"></KarantinData>
+             <KarantinData class="col-6"></KarantinData>
+ </div>
 </div>
 </template>
 <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.1/mapbox-gl.js"></script>
@@ -73,7 +78,9 @@ import counter from "./charts/template/Counter"
 
 // import mapChart from './charts/template/MapChart.vue'
 
-import KarantinData from './charts/Moscow/KarantinData.vue'
+import KarantinData from './charts/Moscow/Sasha2v3.vue'
+
+import KarantinData2 from './charts/Moscow/Sasha3v3.vue'
 
 import TablePSimple from './charts/template/Table'
 
@@ -90,7 +97,7 @@ export default {
         counter,
    MglMap,
         MglGeojsonLayer  ,   
-     
+     KarantinData2,
         KarantinData,
         TablePSimple
     },
@@ -337,4 +344,9 @@ export default {
 // console.log(col);
 </script>
 
+<style  >
 
+.mapboxgl-control-container{
+    display:none;
+}
+</style>
