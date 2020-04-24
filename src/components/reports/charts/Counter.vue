@@ -30,8 +30,7 @@ export default {
 <style scoped>
 
 .counter{
-    height: 100%;
-    background-color: #FFF;
+    padding-top:20px;
 }
 .counter h6{
     font-size:0.7vw;
@@ -59,8 +58,9 @@ export default {
 .box {
   border:1px solid #EEE;
   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03), 0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03), 0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05), 0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
-    width: 100%;
+  width: 100%;
 
+    background-color: #FFF;
 }
 
 

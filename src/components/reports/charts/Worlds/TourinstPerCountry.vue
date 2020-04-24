@@ -12,7 +12,7 @@ import BarChart from '../template/BarChart'
 
 
 		function colorize() {
-        console.log(arguments)
+     //   console.log(arguments)
 			// var v = ctx.dataset.data[ctx.dataIndex];
       // console.log(v);
 			// var c = v < -50 ? '#D60000'

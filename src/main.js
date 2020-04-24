@@ -15,18 +15,17 @@ import '@fortawesome/fontawesome-free/css/all.css'
 
 import VueSidebarMenu from 'vue-sidebar-menu'
 import 'vue-sidebar-menu/dist/vue-sidebar-menu.css'
-
 import 'vue-awesome/icons'
 
 
+
 import chartjs from "vue-chartjs"
-
-
-
 import chartjsPluginTreadline from "chartjs-plugin-trendline"
 
 
 
+
+import Multiselect from 'vue-multiselect'
 
 
 
@@ -41,7 +40,7 @@ Vue.use(VueSidebarMenu)
 Vue.use(chartjs)
 Vue.use(chartjsPluginTreadline)
 
-
+Vue.component('multiselect', Multiselect)
 
 
 import App from './App.vue'
