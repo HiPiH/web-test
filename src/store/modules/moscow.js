@@ -11,8 +11,8 @@ const getters = {
 
 
     getAOs(state) {
-      if(state.aos.data)
-        return state.aos.data.features;
+      if(state.aos.features)
+        return state.aos.features;
       return [];
     },
     getAOsForSearch(state,getters) {
@@ -28,7 +28,7 @@ const getters = {
                       p2: 100-c 
               }
             }
-        ).slice(1,5);
+        ).slice(0,5);
     },
     getCounter1(){
         return Math.floor(Math.random()*100) + "%";
@@ -56,7 +56,6 @@ const getters = {
                     } 
                 }
           );
-          console.log(ret);
           return ret;
     },
     getChartN2(state,getter){
@@ -77,7 +76,7 @@ const actions = {
     loadAOS ({ commit } )  {
         axios.get('/moscow.geojson').then(
           function(data) { 
-               commit('upadateAOS', data);
+               commit('upadateAOS', data.data);
           },
         function(data) { 
                console.error(data);

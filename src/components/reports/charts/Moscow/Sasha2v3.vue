@@ -23,10 +23,10 @@ export default {
         optionsChart:{type:Object, default: function() {  return {
                 title:'title',
                 yTitle:'yTitle',
-                label:[]
+                label:[],
+                datacollection:[]
             };}
-        },
-        data:{type:Function}
+        }
   },
   components: {
       BarChart
@@ -74,7 +74,7 @@ export default {
              titleAlign:'left'
           },
           legend: {
-            display: true,
+            display: this.optionsChart.datacollection.datasets.length > 1,
             position:"bottom"
           }
         }

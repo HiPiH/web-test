@@ -41,7 +41,6 @@ export default {
                             .style("opacity", 0);
 
            
-            console.log(width,height);
             var projection = d3.geoMercator() 
                         .fitSize([width, height], this.data);
             var path = d3.geoPath()
@@ -91,13 +90,10 @@ export default {
     mounted:  function () {
             var my = this;
 
-            console.log("Start");
             if(my.urlData != "" && my.urlData != undefined)
             {
-                    console.log("Load "+my.urlData);
                     d3.json(my.urlData)
                         .then(function( data) {
-                         console.log(data)
                          my.data = data
                          my.renderMap();
                     }).catch(function(error) {

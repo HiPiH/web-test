@@ -96,7 +96,7 @@ export default {
       TablePSimple
     },
     computed: {
-        ...mapGetters('moscowAO', [
+        ...mapGetters('moscow', [
             'getAOsForSearch',
             'getAOTop',
             'getCounter1',
@@ -252,7 +252,7 @@ export default {
     },
 
     methods: {
-      ...mapActions('moscowAO',['loadAOS']),
+      ...mapActions('moscow',['loadAOS']),
       getDataForMap(){
         return window.countries_data
       },
