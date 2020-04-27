@@ -17,7 +17,7 @@ const getters = {
 
 const actions = {
     login({ commit }, user) {
-console.log(user);
+      console.log(user);
      if(user.password == "123456")
         {
             commit('login', user.login);
